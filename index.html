@@ -1,34 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <title>Qualculator</title>
 </head>
 
 <body>
-
     <h1>Qualculator</h1>
 
     <div class="grid-container">
-        <input type="text" id="output" value="0">
-        <button class="grid-item" onclick="dis('1')">c</button>
-        <button class="grid-item" onclick="clr()">ce</button>
-        <button class="grid-item" onclick="dis('%')">%</button>
-        <button class="grid-item" onclick="dis('+')">+</button>
-        <button class="grid-item" onclick="dis('7')">7</button>
-        <button class="grid-item" onclick="dis('8')">8</button>
-        <button class="grid-item" onclick="dis('9')">9</button>
-        <button class="grid-item" onclick="dis('*')">*</button>
-        <button class="grid-item" onclick="dis('4')">4</button>
-        <button class="grid-item" onclick="dis('5')">5</button>
-        <button class="grid-item" onclick="dis('6')">6</button>
-        <button class="grid-item" onclick="dis('-')">-</button>
-        <button class="grid-item" onclick="dis('1')">1</button>
-        <button class="grid-item" onclick="dis('2')">2</button>
-        <button class="grid-item" onclick="dis('3')">3</button>
-        <button class="grid-item" onclick="dis('+')">+</button>
-        <button class="grid-item zero" onclick="dis('0')">0</button>
-        <button class="grid-item" onclick="dis('.')">.</button>
+        <input type="text" id="input" value="0" readonly>
+        <button class="grid-item" onclick="clearNum()">c</button>
+        <button class="grid-item" onclick="display_divide('/')">/</button>
+        <button class="grid-item" onclick="display_modulo('%')">%</button>
+        <button class="grid-item" onclick="clearLastNumber()">&larr;</button>
+        <button class="grid-item" onclick="display(7)">7</button>
+        <button class="grid-item" onclick="display(8)">8</button>
+        <button class="grid-item" onclick="display(9)">9</button>
+        <button class="grid-item" onclick="display_multi('*')">*</button>
+        <button class="grid-item" onclick="display(4)">4</button>
+        <button class="grid-item" onclick="display(5)">5</button>
+        <button class="grid-item" onclick="display(6)">6</button>
+        <button class="grid-item" onclick="display_sub('-')">-</button>
+        <button class="grid-item" onclick="display(1)">1</button>
+        <button class="grid-item" onclick="display(2)">2</button>
+        <button class="grid-item" onclick="display(3)">3</button>
+        <button class="grid-item" onclick="display_add('+')">+</button>
+        <button class="grid-item zero" onclick="display('0')">0</button>
+        <button class="grid-item" onclick="display('.')">.</button>
         <button class="grid-item" onclick="solve()">=</button>
     </div>
 

@@ -1,16 +1,100 @@
-//function that display value
-function dis(val) {
-    document.getElementById("output").value += val
+let numberInInput = 0;
+let secondNumber = 0;
+let operation = "";
+let total = 0;
+
+function display(number) {
+    document.getElementById("input").value = number;
+
+    if (numberInInput > 0) {
+        secondNumber = number;
+        console.log(secondNumber);
+    } else {
+        numberInInput = number;
+        console.log(numberInInput);
+    }
 }
 
-//function that evaluates the digit and return result
+function clearNum() {
+    numberInInput = 0;
+    secondNumber = 0;
+    total = 0;
+    operation = 0;
+    document.getElementById("input").value = "0";
+}
+
+function display_add(add) {
+    document.getElementById("input").value = "";
+    document.getElementById("input").value = add;
+    operation = "addition";
+}
+
+function display_sub(sub) {
+    document.getElementById("input").value = "";
+    document.getElementById("input").value = sub;
+    operation = "subtraction";
+}
+
+function display_divide(divide) {
+    document.getElementById("input").value = "";
+    document.getElementById("input").value = divide;
+    operation = "divide";
+}
+
+function display_multi(multi) {
+    document.getElementById("input").value = "";
+    document.getElementById("input").value = multi;
+    operation = "multiply";
+}
+
+function display_modulo(modulo) {
+    document.getElementById("input").value = "";
+    document.getElementById("input").value = modulo;
+    operation = "modulo";
+}
+
 function solve() {
-    let x = document.getElementById("output").value
-    let y = eval(x)
-    document.getElementById("output").value = y
-}
+    if (operation == "addition" && total == 0) {
+        total = numberInInput + secondNumber;
+        document.getElementById("input").value = "";
+        document.getElementById("input").value = total;
+    } else if (operation == "subtraction" && total == 0) {
+        total = numberInInput - secondNumber;
+        document.getElementById("input").value = "";
+        document.getElementById("input").value = total;
+    } else if (operation == "divide" && total == 0) {
+        total = numberInInput / secondNumber;
+        document.getElementById("input").value = "";
+        document.getElementById("input").value = total;
+    } else if (operation == "multiply" && total == 0) {
+        total = numberInInput * secondNumber;
+        document.getElementById("input").value = "";
+        document.getElementById("input").value = total;
+    } else if (operation == "modulo" && total == 0) {
+        total = numberInInput % secondNumber;
+        document.getElementById("input").value = "";
+        document.getElementById("input").value = total;
+    } else if (operation == "addition" && total != 0) {
+        total = total + secondNumber;
+        document.getElementById("input").value = "";
+        document.getElementById("input").value = total;
+    } else if (operation == "subtraction" && total != 0) {
+        total = total - secondNumber;
+        document.getElementById("input").value = "";
+        document.getElementById("input").value = total;
+    } else if (operation == "divide" && total != 0) {
+        total = total / secondNumber;
+        document.getElementById("input").value = "";
+        document.getElementById("input").value = total;
+    } else if (operation == "multiply" && total != 0) {
+        total = total * secondNumber;
+        document.getElementById("input").value = "";
+        document.getElementById("input").value = total;
+    } else if (operation == "modulo" && total != 0) {
+        total = total % secondNumber;
+        document.getElementById("input").value = "";
+        document.getElementById("input").value = total;
+    }
 
-//function that clear the display
-function clr() {
-    document.getElementById("output").value = ""
+    console.log(total);
 }
