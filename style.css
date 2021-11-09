@@ -34,6 +34,41 @@ h1 {
     color: white;
 }
 
+/* Für die Berechnung des Ergebnises */
+.grid-item:nth-child(20) {
+    background-color: yellow;
+}
+
+/* Für Addition */
+.grid-item:nth-child(17) {
+    background-color: green;
+}
+
+.grid-item:nth-child(17):hover {
+    background-color: green;
+    border: 2px solid green;
+}
+
+/* Für minus Berechnung */
+.grid-item:nth-child(13) {
+    background-color: red;
+}
+
+.grid-item:nth-child(13):hover {
+    background-color: red;
+    border: 2px solid red;
+}
+
+/* Für die Multiplikation */
+.grid-item:nth-child(9) {
+    background-color: pink;
+}
+
+.grid-item:nth-child(9):hover {
+    background-color: pink;
+    border: 2px solid pink;
+}
+
 input {
     grid-column: 1 / span 4;
     grid-row: 1;
