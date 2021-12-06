@@ -6,7 +6,7 @@ let total = 0;
 function display(number) {
     document.getElementById("input").value = number;
 
-    if (numberInInput > 0) {
+    if (numberInInput) {
         secondNumber = number;
         console.log(secondNumber);
     } else {
@@ -95,6 +95,13 @@ function solve() {
         document.getElementById("input").value = "";
         document.getElementById("input").value = total;
     }
+}
 
-    console.log(total);
+function clearLastNumber() {
+    let text = document.getElementById("input").value;
+    // https://stackoverflow.com/questions/952924/how-do-i-chop-slice-trim-off-last-character-in-string-using-javascript
+    text = parseInt(text.substring(0, text.length - 1));
+    document.getElementById("input").value = text;
+    numberInInput = text;
+    console.log(numberInInput);
 }
