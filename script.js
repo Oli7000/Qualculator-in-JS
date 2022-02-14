@@ -129,7 +129,10 @@ function solve() {
 function clearLastNumber() {
     let text = document.getElementById("input").value;
     // https://stackoverflow.com/questions/952924/how-do-i-chop-slice-trim-off-last-character-in-string-using-javascript
-    text = parseInt(text.substring(0, text.length - 1));
+    text = text.substring(0, text.length - 1);
+    console.log(text);
     document.getElementById("input").value = text;
-    secondNumber = text;
+    numberInInput = text;
+    secondNumber = 0;
+    total = 0;
 }
