@@ -81,48 +81,63 @@ function solve() {
         total = numberInInput + secondNumber;
         document.getElementById("input").value = "";
         document.getElementById("input").value = total;
+        enterAnimation();
     } else if (operation == "addition" && total != 0) {
         secondNumber = parseInt(secondNumber);
         total += secondNumber;
         document.getElementById("input").value = "";
         document.getElementById("input").value = total;
+        enterAnimation();
     } else if (operation == "subtraction" && total == 0) {
         total = numberInInput - secondNumber;
         document.getElementById("input").value = "";
         document.getElementById("input").value = total;
+        enterAnimation();
     } else if (operation == "subtraction" && total != 0) {
         secondNumber = parseInt(secondNumber);
         total -= secondNumber;
         document.getElementById("input").value = "";
         document.getElementById("input").value = total;
+        enterAnimation();
     } else if (operation == "divide" && total == 0) {
         total = numberInInput / secondNumber;
         document.getElementById("input").value = "";
         document.getElementById("input").value = total;
+        enterAnimation();
     } else if (operation == "divide" && total != 0) {
         secondNumber = parseInt(secondNumber);
         total /= secondNumber;
         document.getElementById("input").value = "";
         document.getElementById("input").value = total;
+        enterAnimation();
     } else if (operation == "multiply" && total == 0) {
         total = numberInInput * secondNumber;
         document.getElementById("input").value = "";
         document.getElementById("input").value = total;
+        enterAnimation();
     } else if (operation == "multiply" && total != 0) {
         secondNumber = parseInt(secondNumber);
         total *= secondNumber;
         document.getElementById("input").value = "";
         document.getElementById("input").value = total;
+        enterAnimation();
     } else if (operation == "modulo" && total == 0) {
         total = numberInInput % secondNumber;
         document.getElementById("input").value = "";
         document.getElementById("input").value = total;
+        enterAnimation();
     } else if (operation == "modulo" && total != 0) {
         secondNumber = parseInt(secondNumber);
         total %= secondNumber;
         document.getElementById("input").value = "";
         document.getElementById("input").value = total;
+        enterAnimation();
     }
+}
+
+function enterAnimation() {
+    document.querySelector("input").style = "background-color: #00ff44; transform: 0.5s ease";
+    setTimeout(function() { document.querySelector("input").style = "background-color: none; transform: 0.5s ease"; }, 400);
 }
 
 /* Um eine ziffer zu löschen */
