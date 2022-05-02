@@ -4,18 +4,21 @@ let operation = "";
 let total = 0;
 let buttonCount = 0;
 
-/* Für die Anzeige zuständig */
+/* To show the button klicks in the input field */
 function display(number) {
     if (buttonCount == 0 && operation == "" && numberInInput == 0 && secondNumber == 0 && total == 0) {
         document.getElementById("input").value = number;
         numberInInput = document.getElementById("input").value;
         buttonCount++;
         console.log("1", numberInInput)
+    } else if (number == '.' && secondNumber == 0 && total == 0 && buttonCount != 0) {
+        document.getElementById("input").value += number;
+        numberInInput += number;
     } else if (buttonCount != 0 && operation == "" && numberInInput != 0 && secondNumber == 0 && total == 0) {
         document.getElementById("input").value += number;
         numberInInput += number;
         console.log("2", numberInInput, "", secondNumber)
-    } else if (buttonCount != 0 && operation != "" && secondNumber == 0 && total == 0) {
+    } else if (buttonCount != 0 && operation != "" && secondNumber == 0 && total == 0 && numberInInput != 0) {
         document.getElementById("input").value = number;
         secondNumber = document.getElementById("input").value;
         console.log("3", numberInInput, " ", secondNumber)
@@ -31,7 +34,7 @@ function display(number) {
     }
 }
 
-/* Um den Inhalt vom Input Feld zu löschen */
+/* To delete the value in the input field */
 function clearNum() {
     numberInInput = 0;
     secondNumber = 0;
@@ -41,7 +44,7 @@ function clearNum() {
     document.getElementById("input").value = "0";
 }
 
-/* Falls plus, minus, geteilt, mahl oder modulo ausgewählt wird */
+/* If plus, minus, divide, multiply or modulo is selected */
 function display_add(add) {
     document.getElementById("input").value = "";
     document.getElementById("input").value = add;
@@ -72,11 +75,11 @@ function display_modulo(modulo) {
     operation = "modulo";
 }
 
-/* Um das Resultat zu berechnen */
+/* To calculate the result */
 function solve() {
     if (operation == "addition" && total == 0) {
-        numberInInput = parseInt(numberInInput);
-        secondNumber = parseInt(secondNumber);
+        numberInInput = parseFloat(numberInInput);
+        secondNumber = parseFloat(secondNumber);
         console.log(numberInInput, secondNumber);
         total = numberInInput + secondNumber;
         document.getElementById("input").value = "";
@@ -134,13 +137,13 @@ function solve() {
         enterAnimation();
     }
 }
-
+/* When user wants to numbers together, a green animation appears in the input field */
 function enterAnimation() {
     document.querySelector("input").style = "background-color: #00ff44; transform: 0.5s ease";
     setTimeout(function() { document.querySelector("input").style = "background-color: none; transform: 0.5s ease"; }, 400);
 }
 
-/* Um eine ziffer zu löschen */
+/* To delete a digit */
 function clearLastNumber() {
     let text = document.getElementById("input").value;
     // https://stackoverflow.com/questions/952924/how-do-i-chop-slice-trim-off-last-character-in-string-using-javascript
