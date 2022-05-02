@@ -1,7 +1,12 @@
+/* First number for input field */
 let numberInInput = 0;
+/* Second number for input field */
 let secondNumber = 0;
+/* To store the operation that the wants */
 let operation = "";
+/* To calculate the result */
 let total = 0;
+/* How often the user has clicked on a button */
 let buttonCount = 0;
 
 /* To show the button klicks in the input field */
