@@ -11,31 +11,43 @@ let buttonCount = 0;
 
 /* To show the button klicks in the input field */
 function display(number) {
+    console.log(operation);
     if (buttonCount == 0 && operation == "" && numberInInput == 0 && secondNumber == 0 && total == 0) {
         document.getElementById("input").value = number;
         numberInInput = document.getElementById("input").value;
         buttonCount++;
-        console.log("1", numberInInput)
+        console.log("Operation 1")
     } else if (number == '.' && secondNumber == 0 && total == 0 && buttonCount != 0) {
         document.getElementById("input").value += number;
         numberInInput += number;
+        console.log("Operation 2")
     } else if (buttonCount != 0 && operation == "" && numberInInput != 0 && secondNumber == 0 && total == 0) {
         document.getElementById("input").value += number;
         numberInInput += number;
-        console.log("2", numberInInput, "", secondNumber)
+        console.log("Operation 3")
     } else if (buttonCount != 0 && operation != "" && secondNumber == 0 && total == 0 && numberInInput != 0) {
         document.getElementById("input").value = number;
         secondNumber = document.getElementById("input").value;
-        console.log("3", numberInInput, " ", secondNumber)
+        console.log("Operation 4")
     } else if (buttonCount != 0 && operation != "" && secondNumber != 0 && total == 0) {
         document.getElementById("input").value += number;
         secondNumber += number;
-        console.log("4", numberInInput, " ", secondNumber);
-    } else if (total != 0) {
+        console.log("Operation 5")
+    } else if (total != 0 && operation != "") {
         document.getElementById("input").value = "";
         document.getElementById("input").value = number;
-        secondNumber = number;
-        console.log("5", secondNumber);
+        secondNumber += number;
+        console.log("5", numberInInput, secondNumber);
+    } else if (total != 0 && operation == "") {
+        numberInInput = 0;
+        secondNumber = 0;
+        total = 0;
+        operation = "";
+        buttonCount = 0;
+        document.getElementById("input").value = number;
+        numberInInput = document.getElementById("input").value;
+        console.log("Operation 6")
+        buttonCount++;
     }
 }
 
@@ -118,6 +130,7 @@ function solve() {
         document.getElementById("input").value = "";
         document.getElementById("input").value = total;
         enterAnimation();
+        operation = "";
     } else if (operation == "multiply" && total == 0) {
         total = numberInInput * secondNumber;
         document.getElementById("input").value = "";
@@ -141,6 +154,7 @@ function solve() {
         document.getElementById("input").value = total;
         enterAnimation();
     }
+    operation = "";
 }
 /* When user wants to numbers together, a green animation appears in the input field */
 function enterAnimation() {
