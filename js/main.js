@@ -4,6 +4,7 @@ let numberInInput = 0;
 let secondNumber = 0;
 /* To store the operation that the wants */
 let operation = "";
+let previousOperation = "";
 /* To calculate the result */
 let total = 0;
 /* How often the user has clicked on a button */
@@ -36,13 +37,16 @@ function display(number) {
     } else if (total != 0 && operation != "") {
         document.getElementById("input").value = "";
         document.getElementById("input").value = number;
-        secondNumber += number;
-        console.log("5", numberInInput, secondNumber);
+        numberInInput = total;
+        total = 0;
+        secondNumber = number;
+        console.log("Operation 6");
     } else if (total != 0 && operation == "") {
         numberInInput = 0;
         secondNumber = 0;
         total = 0;
         operation = "";
+        previousOperation = "";
         buttonCount = 0;
         document.getElementById("input").value = number;
         numberInInput = document.getElementById("input").value;
@@ -57,6 +61,7 @@ function clearNum() {
     secondNumber = 0;
     total = 0;
     operation = "";
+    previousOperation = "";
     buttonCount = 0;
     document.getElementById("input").value = "0";
 }
@@ -108,6 +113,18 @@ function solve() {
         document.getElementById("input").value = "";
         document.getElementById("input").value = total;
         enterAnimation();
+    } else if (previousOperation == "addition" && total != 0) {
+        secondNumber = parseInt(secondNumber);
+        total += secondNumber;
+        document.getElementById("input").value = "";
+        document.getElementById("input").value = total;
+        enterAnimation();
+    } else if (previousOperation == "substraction" && total != 0) {
+        secondNumber = parseInt(secondNumber);
+        total += secondNumber;
+        document.getElementById("input").value = "";
+        document.getElementById("input").value = total;
+        enterAnimation();
     } else if (operation == "subtraction" && total == 0) {
         total = numberInInput - secondNumber;
         document.getElementById("input").value = "";
@@ -131,6 +148,12 @@ function solve() {
         document.getElementById("input").value = total;
         enterAnimation();
         operation = "";
+    } else if (previousOperation == "divide" && total != 0) {
+        secondNumber = parseInt(secondNumber);
+        total += secondNumber;
+        document.getElementById("input").value = "";
+        document.getElementById("input").value = total;
+        enterAnimation();
     } else if (operation == "multiply" && total == 0) {
         total = numberInInput * secondNumber;
         document.getElementById("input").value = "";
@@ -139,6 +162,12 @@ function solve() {
     } else if (operation == "multiply" && total != 0) {
         secondNumber = parseInt(secondNumber);
         total *= secondNumber;
+        document.getElementById("input").value = "";
+        document.getElementById("input").value = total;
+        enterAnimation();
+    } else if (previousOperation == "multiply" && total != 0) {
+        secondNumber = parseInt(secondNumber);
+        total += secondNumber;
         document.getElementById("input").value = "";
         document.getElementById("input").value = total;
         enterAnimation();
@@ -153,6 +182,15 @@ function solve() {
         document.getElementById("input").value = "";
         document.getElementById("input").value = total;
         enterAnimation();
+    } else if (previousOperation == "modulo" && total != 0) {
+        secondNumber = parseInt(secondNumber);
+        total += secondNumber;
+        document.getElementById("input").value = "";
+        document.getElementById("input").value = total;
+        enterAnimation();
+    }
+    if (!previousOperation) {
+        previousOperation = operation;
     }
     operation = "";
 }
